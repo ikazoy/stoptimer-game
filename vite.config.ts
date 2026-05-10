@@ -4,14 +4,17 @@ import { VitePWA } from 'vite-plugin-pwa'
 
 // https://vite.dev/config/
 export default defineConfig({
+  preview: {
+    allowedHosts: ['stoptimer.ngrok.dev'],
+  },
   plugins: [
     react(),
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg', 'app-icon.svg'],
       manifest: {
-        name: 'ぴったりストップ大会',
-        short_name: 'ストップ大会',
+        name: 'ぴったりストップ',
+        short_name: 'ぴったりストップ',
         description: 'お祭りブース向けのストップタイマーゲーム',
         theme_color: '#ffcf33',
         background_color: '#fff7df',

@@ -163,7 +163,7 @@ function HomeScreen({
       <header className="top-bar">
         <div>
           <p className="eyebrow">お祭りブース</p>
-          <h1>ぴったりストップ大会</h1>
+          <h1>ぴったりストップ</h1>
         </div>
         <button
           className="icon-button admin-gear"
@@ -308,13 +308,22 @@ function GameScreen({
           <p className="eyebrow">{preset.name}</p>
           <h1>{toSecondsLabel(preset.targetSeconds)}で止めよう</h1>
         </div>
-        <div className="target-pill">
-          表示 {toSecondsLabel(preset.visibleUntilSeconds)}まで
-        </div>
+        {phase === 'ready' ? (
+          <div className="target-pill">
+            表示 {toSecondsLabel(preset.visibleUntilSeconds)}まで
+          </div>
+        ) : (
+          <div className="target-pill-placeholder" aria-hidden="true" />
+        )}
       </header>
 
-      <div className={`timer-display ${shouldHide ? 'is-hidden' : ''}`} aria-live="polite">
-        {shouldHide ? '???' : displayTime.toFixed(1)}
+      <div
+        className={`timer-display ${shouldHide ? 'is-hidden' : ''}`}
+        aria-label={shouldHide ? 'タイマーは隠れています' : `経過 ${displayTime.toFixed(1)}秒`}
+        aria-live="polite"
+      >
+        <span className="timer-value">{displayTime.toFixed(1)}</span>
+        {shouldHide && <span className="timer-cover">???</span>}
       </div>
 
       {phase === 'ready' ? (

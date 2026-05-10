@@ -262,7 +262,13 @@ textarea {
   font-weight: 900;
 }
 
+.target-pill-placeholder {
+  width: 1px;
+  height: 72px;
+}
+
 .timer-display {
+  position: relative;
   align-self: center;
   justify-self: center;
   width: min(640px, 88vw);
@@ -278,13 +284,33 @@ textarea {
   font-weight: 1000;
   line-height: 1;
   font-variant-numeric: tabular-nums;
+  overflow: hidden;
 }
 
 .timer-display.is-hidden {
+  color: #111827;
+}
+
+.timer-value {
+  position: relative;
+  z-index: 1;
+}
+
+.timer-cover {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  display: grid;
+  place-items: center;
   background:
-    repeating-linear-gradient(45deg, rgba(255, 207, 51, 0.24), rgba(255, 207, 51, 0.24) 16px, #ffffff 16px, #ffffff 32px);
-  color: var(--accent-color);
-  animation: pulse 800ms ease-in-out infinite alternate;
+    linear-gradient(180deg, #ffffff, #fff7df),
+    repeating-linear-gradient(45deg, #ffcf33, #ffcf33 18px, var(--accent-color) 18px, var(--accent-color) 36px);
+  color: #111827;
+  font-size: 118px;
+  font-weight: 1000;
+  border-bottom: 8px solid #111827;
+  transform: translateY(-104%);
+  animation: cover-drop 360ms cubic-bezier(0.18, 0.9, 0.24, 1) forwards;
 }
 
 .start-button,
@@ -540,12 +566,12 @@ textarea {
   display: none;
 }
 
-@keyframes pulse {
+@keyframes cover-drop {
   from {
-    transform: scale(1);
+    transform: translateY(-104%);
   }
   to {
-    transform: scale(1.03);
+    transform: translateY(0);
   }
 }
 

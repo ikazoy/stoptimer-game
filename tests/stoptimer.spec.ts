@@ -26,7 +26,7 @@ async function openAdmin(page: import('@playwright/test').Page) {
 test('デフォルトプリセットが表示される', async ({ page }) => {
   await page.goto('/')
 
-  await expect(page.getByRole('heading', { name: 'ぴったりストップ大会' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'ぴったりストップ' })).toBeVisible()
   await expect(page.getByRole('button', { name: /かんたん 10秒/ })).toContainText('10.0秒まで見える')
   await expect(page.getByRole('button', { name: /ふつう 10秒/ })).toContainText('7.0秒まで見える')
   await expect(page.getByRole('button', { name: /むずかしい 15秒/ })).toContainText('3.0秒まで見える')
@@ -124,5 +124,5 @@ test('Service Worker経由でオフライン再読み込みできる', async ({ 
   await context.setOffline(true)
   await page.reload({ waitUntil: 'domcontentloaded' })
 
-  await expect(page.getByRole('heading', { name: 'ぴったりストップ大会' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'ぴったりストップ' })).toBeVisible()
 })
