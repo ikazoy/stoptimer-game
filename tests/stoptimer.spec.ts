@@ -17,7 +17,7 @@ const quickPreset = {
 
 async function openAdmin(page: import('@playwright/test').Page) {
   await page.goto('/')
-  await page.getByLabel('管理者メニューを開く').click({ delay: 850 })
+  await page.getByLabel('管理者メニューを開く').click()
   await page.getByLabel('PIN').fill('0000')
   await page.getByRole('button', { name: '入る' }).click()
   await expect(page.getByRole('heading', { name: '管理者メニュー' })).toBeVisible()

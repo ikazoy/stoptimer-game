@@ -144,20 +144,6 @@ function HomeScreen({
   onSelect: (preset: Preset) => void
   onAdmin: () => void
 }) {
-  const holdTimer = useRef<number | null>(null)
-
-  function startHold() {
-    clearHold()
-    holdTimer.current = window.setTimeout(onAdmin, 750)
-  }
-
-  function clearHold() {
-    if (holdTimer.current !== null) {
-      window.clearTimeout(holdTimer.current)
-      holdTimer.current = null
-    }
-  }
-
   return (
     <section className="home-screen">
       <header className="top-bar">
@@ -170,10 +156,7 @@ function HomeScreen({
           type="button"
           aria-label="管理者メニューを開く"
           title="管理者メニュー"
-          onPointerDown={startHold}
-          onPointerUp={clearHold}
-          onPointerCancel={clearHold}
-          onPointerLeave={clearHold}
+          onClick={onAdmin}
         >
           <Settings />
         </button>
