@@ -21,6 +21,21 @@ pnpm build
 pnpm preview
 ```
 
+## Cloudflare Pages デプロイ
+
+このアプリは Cloudflare Pages の無料枠でホスティングします。
+
+- Pages project: `stoptimer-game`
+- Production branch: `main`
+- Build command: `pnpm build`
+- Output directory: `dist`
+- Pages URL: `https://stoptimer-game.pages.dev/`
+- Custom domain: `https://stoptimer-game.llmbatch.ly/`
+
+`main` に push されると、GitHub Actions の `Deploy Cloudflare Pages` workflow が `pnpm lint` と `pnpm build` を実行し、成功したビルド成果物を `wrangler pages deploy` で Cloudflare Pages に配備します。
+
+CI には GitHub Actions secrets として `CLOUDFLARE_ACCOUNT_ID` と `CLOUDFLARE_API_TOKEN` が必要です。
+
 ## テスト
 
 ```bash
