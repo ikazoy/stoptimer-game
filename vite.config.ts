@@ -15,7 +15,7 @@ export default defineConfig({
       manifest: {
         name: 'ぴったりストップ',
         short_name: 'ぴったりストップ',
-        description: 'お祭りブース向けのストップタイマーゲーム',
+        description: '指定秒数ぴったりを狙うストップタイマーゲーム',
         theme_color: '#ffcf33',
         background_color: '#fff7df',
         display: 'standalone',

@@ -162,7 +162,7 @@ function HomeScreen({
     <section className="home-screen">
       <header className="top-bar">
         <div>
-          <p className="eyebrow">お祭りブース</p>
+          <p className="eyebrow">チャレンジゲーム</p>
           <h1>ぴったりストップ</h1>
         </div>
         <button
