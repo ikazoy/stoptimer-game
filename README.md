@@ -29,8 +29,7 @@ pnpm preview
 - Production branch: `main`
 - Build command: `pnpm build`
 - Output directory: `dist`
-- Pages URL: `https://stoptimer-game.pages.dev/`
-- Custom domain: `https://stoptimer-game.llmbatch.ly/`
+- Production URL: `https://stoptimer-game.pages.dev/`
 
 `main` に push されると、GitHub Actions の `Deploy Cloudflare Pages` workflow が `pnpm lint` と `pnpm build` を実行し、成功したビルド成果物を `wrangler pages deploy` で Cloudflare Pages に配備します。
 
